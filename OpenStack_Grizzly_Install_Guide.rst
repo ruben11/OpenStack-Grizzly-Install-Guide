@@ -73,16 +73,17 @@ Status: Stable
 
    sudo su
 
-* Add Grizzly repositories [Only for Ubuntu 12.04]::
-
-   apt-get install -y ubuntu-cloud-keyring 
-   echo deb http://ubuntu-cloud.archive.canonical.com/ubuntu precise-updates/grizzly main >> /etc/apt/sources.list.d/grizzly.list
-
 * Update your system::
 
    apt-get update -y
    apt-get upgrade -y
    apt-get dist-upgrade -y
+
+* Add Grizzly repositories [Only for Ubuntu 12.04]::
+
+   apt-get install -y ubuntu-cloud-keyring 
+   echo deb http://ubuntu-cloud.archive.canonical.com/ubuntu precise-updates/grizzly main >> /etc/apt/sources.list.d/grizzly.list
+
 
 2.2. Networking
 ------------
