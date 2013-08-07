@@ -66,29 +66,18 @@ Status: Stable
 2. Controller Node
 ===============
 
-2.1. Preparing Ubuntu
------------------
 
-* After you install Ubuntu 12.04 or 13.04 Server 64bits, Go in sudo mode and don't leave it until the end of this guide::
-
-   sudo su
-
-* Add Grizzly repositories [Only for Ubuntu 12.04]::
-
-   apt-get install -y ubuntu-cloud-keyring 
-   echo deb http://ubuntu-cloud.archive.canonical.com/ubuntu precise-updates/grizzly main >> /etc/apt/sources.list.d/grizzly.list
-
-* Update your system::
-
-   apt-get update -y
-   apt-get upgrade -y
-   apt-get dist-upgrade -y
-
-2.2. Networking
+2.1. Networking
 ------------
 
 * Only one NIC should have an internet access::
 
+   #Not internet connected(used for OpenStack management)
+   auto eth0
+   iface eth0 inet static
+   address 10.10.10.51
+   netmask 255.255.255.0
+   
    #For Exposing OpenStack API over the internet
    auto eth1
    iface eth1 inet static
@@ -97,15 +86,31 @@ Status: Stable
    gateway 192.168.100.1
    dns-nameservers 8.8.8.8
 
-   #Not internet connected(used for OpenStack management)
-   auto eth0
-   iface eth0 inet static
-   address 10.10.10.51
-   netmask 255.255.255.0
+
 
 * Restart the networking service::
 
    service networking restart
+   
+
+2.2. Preparing Ubuntu
+-----------------
+
+* After you install Ubuntu 12.04 or 13.04 Server 64bits, Go in sudo mode and don't leave it until the end of this guide::
+
+   sudo su
+
+* Update your system::
+
+   apt-get update -y
+   apt-get upgrade -y
+   apt-get dist-upgrade -y
+
+* Add Grizzly repositories [Only for Ubuntu 12.04]::
+
+   apt-get install -y ubuntu-cloud-keyring 
+   echo deb http://ubuntu-cloud.archive.canonical.com/ubuntu precise-updates/grizzly main >> /etc/apt/sources.list.d/grizzly.list
+
 
 2.3. MySQL & RabbitMQ
 ------------
