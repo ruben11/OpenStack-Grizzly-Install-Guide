@@ -96,15 +96,16 @@ Status: Stable
 
    sudo su
 
-* Update your system::
-
-   apt-get -y update && apt-get -y upgrade && apt-get -y dist-upgrade
+   apt-get update
 
 * Add Grizzly repositories [Only for Ubuntu 12.04]::
 
    apt-get install -y ubuntu-cloud-keyring 
    echo deb http://ubuntu-cloud.archive.canonical.com/ubuntu precise-updates/grizzly main >> /etc/apt/sources.list.d/grizzly.list
 
+* Update your system::
+
+   apt-get -y update && apt-get -y upgrade && apt-get -y dist-upgrade
 
 
 2.3. MySQL & RabbitMQ
