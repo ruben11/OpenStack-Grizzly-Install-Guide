@@ -187,11 +187,11 @@ Status: Stable
    service keystone restart
    keystone-manage db_sync
 
-* Fill up the keystone database using the two scripts available in the `Scripts folder <https://github.com/ruben11/OpenStack-Grizzly-Install-Guide/tree/OVS_MultiNode/KeystoneScripts>`_ of this git repository::
+* Fill up the keystone database using the two scripts available in the `Scripts folder <https://github.com/mseknibilel/OpenStack-Grizzly-Install-Guide/tree/OVS_MultiNode/KeystoneScripts>`_ of this git repository::
 
       
-   wget https://raw.github.com/ruben11/OpenStack-Grizzly-Install-Guide/OVS_MultiNode/KeystoneScripts/keystone_basic.sh
-   wget https://raw.github.com/ruben11/OpenStack-Grizzly-Install-Guide/OVS_MultiNode/KeystoneScripts/keystone_endpoints_basic.sh
+   wget https://raw.github.com/mseknibilel/OpenStack-Grizzly-Install-Guide/OVS_MultiNode/KeystoneScripts/keystone_basic.sh
+   wget https://raw.github.com/mseknibilel/OpenStack-Grizzly-Install-Guide/OVS_MultiNode/KeystoneScripts/keystone_endpoints_basic.sh
 
    chmod +x keystone_basic.sh
    chmod +x keystone_endpoints_basic.sh
