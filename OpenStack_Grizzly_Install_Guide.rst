@@ -542,6 +542,9 @@ Status: Stable
    gateway 192.168.100.1
    dns-nameservers 8.8.8.8
    
+Restart network service
+   /etc/init.d/networking restart
+
 3.1. Preparing the Node
 ------------------
 
