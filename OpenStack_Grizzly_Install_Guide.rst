@@ -66,7 +66,30 @@ Status: Stable
 2. Controller Node
 ===============
 
-2.1. Preparing Ubuntu
+2.1. Networking
+------------
+
+* Only one NIC should have an internet access::
+
+   #Not internet connected(used for OpenStack management)
+   auto eth0
+   iface eth0 inet static
+   address 10.10.10.51
+   netmask 255.255.255.0
+   
+   #For Exposing OpenStack API over the internet
+   auto eth1
+   iface eth1 inet static
+   address 192.168.100.51
+   netmask 255.255.255.0
+   gateway 192.168.100.1
+   dns-nameservers 8.8.8.8
+
+* Restart the networking service::
+
+   service networking restart
+   
+2.2. Preparing Ubuntu
 -----------------
 
 * After you install Ubuntu 12.04 or 13.04 Server 64bits, Go in sudo mode and don't leave it until the end of this guide::
@@ -83,28 +106,6 @@ Status: Stable
    echo deb http://ubuntu-cloud.archive.canonical.com/ubuntu precise-updates/grizzly main >> /etc/apt/sources.list.d/grizzly.list
 
 
-2.2. Networking
-------------
-
-* Only one NIC should have an internet access::
-
-   #For Exposing OpenStack API over the internet
-   auto eth1
-   iface eth1 inet static
-   address 192.168.100.51
-   netmask 255.255.255.0
-   gateway 192.168.100.1
-   dns-nameservers 8.8.8.8
-
-   #Not internet connected(used for OpenStack management)
-   auto eth0
-   iface eth0 inet static
-   address 10.10.10.51
-   netmask 255.255.255.0
-
-* Restart the networking service::
-
-   service networking restart
 
 2.3. MySQL & RabbitMQ
 ------------
