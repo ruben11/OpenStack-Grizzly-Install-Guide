@@ -195,7 +195,7 @@ Status: Stable
    chmod +x keystone_basic.sh
    chmod +x keystone_endpoints_basic.sh
 
-  #Modify the **HOST_IP** and **EXT_HOST_IP** variables before executing the scripts
+    #Modify the **HOST_IP** and **EXT_HOST_IP** variables before executing the scripts
    ./keystone_basic.sh
    ./keystone_endpoints_basic.sh
 
