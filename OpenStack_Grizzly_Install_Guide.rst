@@ -517,13 +517,38 @@ Status: Stable
 
 3. Network Node
 ================
+3.2.Networking
+------------
 
+* 3 NICs must be present::
+   
+   # OpenStack management
+   auto eth0
+   iface eth0 inet static
+   address 10.10.10.52
+   netmask 255.255.255.0
+
+   # VM Configuration
+   auto eth1
+   iface eth1 inet static
+   address 10.20.20.52
+   netmask 255.255.255.0
+
+   # VM internet Access
+   auto eth2
+   iface eth2 inet static
+   address 192.168.100.52
+   netmask 255.255.255.0
+   gateway 192.168.100.1
+   dns-nameservers 8.8.8.8
+   
 3.1. Preparing the Node
 ------------------
 
 * After you install Ubuntu 12.04 or 13.04 Server 64bits, Go in sudo mode::
 
    sudo su
+   apt-get -y update
 
 * Add Grizzly repositories [Only for Ubuntu 12.04]::
 
@@ -563,29 +588,6 @@ Status: Stable
    
    # To save you from rebooting, perform the following
    sysctl net.ipv4.ip_forward=1
-
-3.2.Networking
-------------
-
-* 3 NICs must be present::
-   
-   # OpenStack management
-   auto eth0
-   iface eth0 inet static
-   address 10.10.10.52
-   netmask 255.255.255.0
-
-   # VM Configuration
-   auto eth1
-   iface eth1 inet static
-   address 10.20.20.52
-   netmask 255.255.255.0
-
-   # VM internet Access
-   auto eth2
-   iface eth2 inet static
-   address 192.168.100.52
-   netmask 255.255.255.0
 
 3.4. OpenVSwitch (Part1)
 ------------------
