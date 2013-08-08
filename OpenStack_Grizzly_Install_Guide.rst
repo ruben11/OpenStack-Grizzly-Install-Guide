@@ -706,13 +706,30 @@ Restart network service
 
 4. Compute Node
 =========================
+4.1.Networking
+------------
 
-4.1. Preparing the Node
+* Perform the following::
+   
+   # OpenStack management
+   auto eth0
+   iface eth0 inet static
+   address 10.10.10.53
+   netmask 255.255.255.0
+
+   # VM Configuration
+   auto eth1
+   iface eth1 inet static
+   address 10.20.20.53
+   netmask 255.255.255.0
+
+4.2. Preparing the Node
 ------------------
 
 * After you install Ubuntu 12.04 or 13.04 Server 64bits, Go in sudo mode::
 
    sudo su
+   apt-get -y update
 
 * Add Grizzly repositories [Only for Ubuntu 12.04]::
 
@@ -722,9 +739,7 @@ Restart network service
 
 * Update your system::
 
-   apt-get update -y
-   apt-get upgrade -y
-   apt-get dist-upgrade -y
+   apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 
 * Reboot (you might have new kernel)
 
@@ -755,23 +770,6 @@ Restart network service
    
    # To save you from rebooting, perform the following
    sysctl net.ipv4.ip_forward=1
-
-4.2.Networking
-------------
-
-* Perform the following::
-   
-   # OpenStack management
-   auto eth0
-   iface eth0 inet static
-   address 10.10.10.53
-   netmask 255.255.255.0
-
-   # VM Configuration
-   auto eth1
-   iface eth1 inet static
-   address 10.20.20.53
-   netmask 255.255.255.0
 
 4.3 KVM
 ------------------
