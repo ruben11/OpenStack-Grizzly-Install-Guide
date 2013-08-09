@@ -974,6 +974,10 @@ Restart network service
 * Check for the smiling faces on nova-* services to confirm your installation::
 
    nova-manage service list
+   
+* Remove temporary eth-interface::
+
+   delete eth2 from the /etc/network/interfaces
 
 
 5. Your first VM
