@@ -975,9 +975,19 @@ Restart network service
 
    nova-manage service list
    
-* Remove temporary eth-interface::
+* Remove temporary eth2 interface::
 
-   delete eth2 from the /etc/network/interfaces
+   # OpenStack management
+   auto eth0
+   iface eth0 inet static
+   address 10.10.10.53
+   netmask 255.255.255.0
+
+   # VM Configuration
+   auto eth1
+   iface eth1 inet static
+   address 10.20.20.53
+   netmask 255.255.255.0
 
 
 5. Your first VM
