@@ -55,7 +55,7 @@ Status: Stable
 :Node Role: NICs
 :Control Node: eth0 (10.10.10.51), eth1 (192.168.100.51)
 :Network Node: eth0 (10.10.10.52), eth1 (10.20.20.52), eth2 (192.168.100.52)
-:Compute Node: eth0 (10.10.10.53), eth1 (10.20.20.53)
+:Compute Node: eth0 (10.10.10.53), eth1 (10.20.20.53), eth2(tmp) (192.168.100.53)
 
 **Note 1:** Always use dpkg -s <packagename> to make sure you are using grizzly packages (version : 2013.1)
 
@@ -722,6 +722,14 @@ Restart network service
    iface eth1 inet static
    address 10.20.20.53
    netmask 255.255.255.0
+   
+   # Temporary interface (while packages install)
+   auto eth2
+   iface eth2 inet static
+   address 192.168.100.53
+   netmask 255.255.255.0
+   gateway 192.168.100.1
+   dns-nameservers 8.8.8.8
 
 4.2. Preparing the Node
 ------------------
